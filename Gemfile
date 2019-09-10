@@ -12,6 +12,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'therubyracer'
 gem 'jbuilder', '~> 2.5'
 gem 'openweather2'
+gem 'bootstrap-sass', '~> 3.3.6'  
+gem 'jquery-rails'
+gem 'turbolinks'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -37,3 +40,5 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end
+
+
