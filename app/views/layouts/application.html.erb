@@ -15,7 +15,8 @@
 
     <body>
         <div class="container">
-            <%= yield %>
+          <%= yield %>
         </div>
-  </body>
+        <%= yield(:javascripts) %>
+    </body>
 </html>
