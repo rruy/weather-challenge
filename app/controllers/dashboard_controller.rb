@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 class DashboardController < ApplicationController
-  
   def index
     search_weather
   end
@@ -9,11 +10,10 @@ class DashboardController < ApplicationController
     render 'index'
   end
 
-  private 
+  private
 
   def search_weather
     city = params[:city]
     @weather = WeatherTranslator.parse city
   end
-
 end

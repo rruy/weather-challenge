@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -11,7 +13,7 @@ module WeatherChallenge
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
-    config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += %W[#{config.root}/lib]
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
     config.watchable_dirs['lib'] = [:rb]
 
