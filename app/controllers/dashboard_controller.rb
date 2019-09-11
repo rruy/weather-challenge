@@ -1,4 +1,3 @@
-
 class DashboardController < ApplicationController
   
   def index
@@ -13,9 +12,8 @@ class DashboardController < ApplicationController
   private 
 
   def search_weather
-    city = (params[:city].blank? ? "Sao Paulo" : params[:city])
-    @weather = Openweather2.get_weather(city: "#{city},BR", units: 'imperial')
-    @weather = WeatherTranslator.parse @weather
+    city = params[:city]
+    @weather = WeatherTranslator.parse city
   end
 
 end

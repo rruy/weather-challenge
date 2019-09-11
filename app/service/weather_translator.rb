@@ -1,8 +1,11 @@
 class WeatherTranslator
   class << self 
 
-    def parse data
-        result = { 
+    def parse city
+      city = (city.blank? ? "Sao Paulo" : city)
+      data = Openweather2.get_weather(city: "#{city},BR", units: 'imperial')
+
+      result = { 
         city: data.city,
         longitude: data.longitude,
         latitude: data.latitude,
@@ -17,11 +20,11 @@ class WeatherTranslator
         clouds: data.clouds,
         wind_speed: data.wind_speed,
         wind_angle: data.wind_angle
-        }
+      }
         
-        OpenStruct.new result
+      OpenStruct.new result
     end
-        
+    
     def convert_temp data
         celsius = ((data.temperature.to_f - 32) * 5 / 9).to_i
     end
