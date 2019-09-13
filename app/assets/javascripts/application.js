@@ -12,8 +12,8 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require_tree .
-
-//= require jquery  
+//= require jquery
+//= require jquery_ujs
 //= require bootstrap-sprockets
 //= require twitter/typeahead
+//= require_tree .

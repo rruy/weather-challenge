@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'openweather2'
@@ -18,6 +18,8 @@ gem 'therubyracer'
 gem 'turbolinks'
 gem 'twitter-typeahead-rails'
 gem 'uglifier', '>= 1.3.0'
+gem 'devise'
+gem 'devise-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
