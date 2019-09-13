@@ -6,14 +6,10 @@ var ready;
               return Bloodhound.tokenizers.whitespace(d.name);
           },
           queryTokenizer: Bloodhound.tokenizers.whitespace,
-          local: [
-            { name: 'Rio de Janeiro' }, 
-            { name: 'Sao Paulo' },
-            { name: 'Porto Alegre' },
-            { name: 'Uberlandia' },
-            { name: 'Belo Horizonte' },
-            { name: 'Recife' }
-          ]
+          remote: {
+            url: 'http://localhost:3000/cities/search?q=%QUERY',
+            wildcard: '%QUERY'
+          }
       });
   
       var promise = engine.initialize();

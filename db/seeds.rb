@@ -7,3 +7,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+City.create(name: 'São Paulo', uf: 'SP')
+City.create(name: 'Rio de Janeiro', uf: 'RJ')
+City.create(name: 'Brasília', uf: 'DF')
+City.create(name: 'Salvador', uf: 'BA')
+City.create(name: 'Fortaleza', uf: 'CE')
+City.create(name: 'Belo Horizonte', uf: 'MG')
+City.create(name: 'Manaus', uf: 'AM')
+City.create(name: 'Curitiba', uf: 'PR')
