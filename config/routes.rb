@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get 'dashboard/index'
   post 'dashboard/search'
   get 'dashboard/search'
-  
-  resources :cities do 
+
+  resources :cities do
     collection do
       get 'search'
     end
