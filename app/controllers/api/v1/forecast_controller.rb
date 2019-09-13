@@ -1,4 +1,4 @@
-class Api::V1::WeatherController <  Api::V1::BaseController
+class Api::V1::ForecastController <  Api::V1::BaseController
   def search
     begin
       @weather = WeatherTranslator.parse params[:city]

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Weather API', type: :request do
+RSpec.describe 'Forecast API', type: :request do
   before { host! 'api.totalpass.v1' }
 
   let(:headers) do
@@ -12,11 +12,11 @@ RSpec.describe 'Weather API', type: :request do
     }
   end
 
-  describe 'GET /api/v1/weather/search' do
+  describe 'GET /api/v1/forecast' do
     let(:city) { City.create(name: 'Rio de Janeiro', uf: 'SP') }
 
     before do
-      get "/api/v1/weather/search?city=#{city.name}", params: {}.to_json, headers: headers
+      get "/api/v1/forecast?city=#{city.name}", params: {}.to_json, headers: headers
     end
 
     context 'when the call are correct' do
@@ -30,11 +30,11 @@ RSpec.describe 'Weather API', type: :request do
     end
   end
 
-  describe 'GET /api/v1/weather/search' do
+  describe 'GET /api/v1/forecast' do
     let(:city) { City.create(name: 'sfrwegbregiu', uf: 'SP') }
 
     before do
-      get "/api/v1/weather/search?city=#{city.name}", params: { }.to_json, headers: headers
+      get "/api/v1/forecast?city=#{city.name}", params: { }.to_json, headers: headers
     end
 
     context 'when the call with parameter is incorrect' do

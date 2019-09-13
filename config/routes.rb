@@ -18,11 +18,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json }, path: '/api/' do
     namespace :v1, path: '/v1', constraints: ApiVersionConstraint.new(version: 1, default: true) do
-      resources :weather do
-        collection do
-          get 'search'
-        end
-      end
+      get 'forecast', to: 'forecast#search'
     end
   end
 end
