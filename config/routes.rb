@@ -5,9 +5,8 @@ require 'api_version_constraint'
 Rails.application.routes.draw do
   devise_for :users
   get 'dashboard/index'
-  post 'dashboard/search'
-  get 'dashboard/search'
-
+  post 'dashboard/index'
+  
   resources :cities do
     collection do
       get 'search'

@@ -3,14 +3,13 @@
   <div class="panel panel-primary">
   <div class="panel-heading">Weather Search</div>
   <div class="panel-body">
-    <%= form_with(url: "/dashboard/search", id: "search_city", method: "post") do %>
+    <%= form_with(url: "/dashboard/index", id: "search_city", method: "post") do %>
       <div class="form-group">
         <label for="usr">Search City:</label>
         <input type="text" class="form-control" id="city" name="city">
       </div>
     <% end %>
-
-    <h1>Weather for <%= "#{@weather.city}" %> <%= "#{@weather.temperature[:celsius]}" %> &ordm; C </h1>
+    <h1>Weather for <%= @weather.city %> <%= @weather.temperature[:celsius] %> &ordm; C </h1>
 
     <table class="table table-striped table-bordered table-condensed table-hover" >
     <tbody>
@@ -41,9 +40,6 @@
 <!-- end panel -->
   
 </div>
-
-
-
 
 <%= content_for :javascripts do %>
   <%= javascript_include_tag "pages/dashboard/index" %>
