@@ -53,13 +53,13 @@ bundle install
 bundle exec rake db:drop db:create db:migrate db:seed
 ```
 
-Acesse em http://localhost:3000
+Acesse no frontend do site: http://localhost:3000
 
-API acesso em http://localhost:3000/api/v1/forecast?city=Sao Paulo
+Acesso na API em http://localhost:3000/api/v1/forecast?city=Sao Paulo
 
 O conteúdo retornado pelo sistema deve ser um json no seguinte formato:
 
-/ 20190917124321
+```shell
 // http://localhost:3000/api/v1/forecast?city=Sao%20Paulo
 
 {
@@ -80,3 +80,4 @@ O conteúdo retornado pelo sistema deve ser um json no seguinte formato:
     "wind_angle": 290
   }
 }
+```
