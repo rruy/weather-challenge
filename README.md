@@ -38,21 +38,45 @@ busque tratar condições anormais de execução.
 * Documentação da API: [Current weather data - OpenWeatherMap](https://openweathermap.org/current)
 * Caso tenha alguma dúvida sobre esse desafio, você pode nos encaminhar via e-mail.
 * Caso tenha sugestões de melhorias ou críticas em relação ao desafio ou estrutura inicial do projeto, sinta-se à vontade de nos enviar via e-mail.
-## Instruções
 
-### Docker
+## Instalação e configurações
+
+#### Para instalação dos pacotes necessários:
 
 ```shell
-  docker-compose build
-  docker-compose up
+bundle install
+```
+
+#### Para instalação e configuração do projeto execute os seguintes comandos:
+
+```shell
+bundle exec rake db:drop db:create db:migrate db:seed
 ```
 
 Acesse em http://localhost:3000
 
-### Sem Docker
+API acesso em http://localhost:3000/api/v1/forecast?city=Sao Paulo
 
-```shell
-  bin/rails server -p 3000
-```
+O conteúdo retornado pelo sistema deve ser um json no seguinte formato:
 
-Acesse em http://localhost:3000
+/ 20190917124321
+// http://localhost:3000/api/v1/forecast?city=Sao%20Paulo
+
+{
+  "table": {
+    "city": "Sao Paulo",
+    "longitude": -46.64,
+    "latitude": -23.55,
+    "temperature": {
+      "celsius": 29,
+      "fareinaitew": 85.05
+    },
+    "pressure": 1015,
+    "humidity": 31,
+    "min_temperature": 73,
+    "max_temperature": 89.6,
+    "clouds": 0,
+    "wind_speed": 10.29,
+    "wind_angle": 290
+  }
+}

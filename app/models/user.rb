@@ -25,10 +25,7 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { within: 8..254 }
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
 
-  validates :first_name, presence: true
-  validates :last_name,  presence: true
-  validates :phone,      presence: true, format: /\A\(\d{2}\)\s\d{8,9}\Z/
-  before_validation :format_phone_number, :format_cpf_number, :sanitize_email, :validate_email_format
+  before_validation :sanitize_email, :validate_email_format
 
   def birthdate=(birthdate)
     birthdate.gsub!(/( |_)/, '') if birthdate.is_a?(String)
@@ -40,7 +37,6 @@ class User < ApplicationRecord
   def format_phone_number
     self.phone.try(:strip!)
     self.phone.try(:gsub!, '-', '')
-
     if self.phone.try(:match, /\A\d{2}\d{8,9}\Z/)
       self.phone = "(#{self.phone[0..1]}) #{self.phone[2..11]}"
     end
@@ -56,8 +52,7 @@ class User < ApplicationRecord
   end
 
   def validate_email_format
-    regex = /\A\[a-zA-Z0-9@._]\Z/
-    if self.email.present? && !self.email.match(regex)
+    if self.email.present? && !self.email.match(URI::MailTo::EMAIL_REGEXP)
       errors.add(:email, 'is not valid!')
     end
   end
