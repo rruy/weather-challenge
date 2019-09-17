@@ -20,6 +20,7 @@ gem 'twitter-typeahead-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'devise-i18n'
+gem 'annotate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -41,6 +42,7 @@ end
 
 group :test do
   gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
