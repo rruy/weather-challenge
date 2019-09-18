@@ -9,9 +9,25 @@
 #  uf   :string
 #
 
-
 require 'rails_helper'
 
 RSpec.describe City, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  describe "city validations" do
+    
+    context "with invalid data" do
+      let!(:city) { build :city, name: nil }
+      it "name is invalid" do
+       expect(city).not_to be_valid
+      end
+    end
+
+    context "with valid data" do
+      let!(:city) { build :city }
+      it "name is valid" do
+        expect(city).to be_valid
+      end
+    end
+  end
+
 end
