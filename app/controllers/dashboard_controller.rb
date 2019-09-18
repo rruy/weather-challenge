@@ -4,13 +4,11 @@ class DashboardController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @weather = search_weather
-  end
-
-  private
-
-  def search_weather
+    binding.pry
     city = params[:city]
-    @weather = WeatherTranslator.parse city
+    @weather = ForecastService.call(city)
+  rescue => e
+    head 500
   end
+
 end

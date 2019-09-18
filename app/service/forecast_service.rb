@@ -1,11 +1,21 @@
-class WeatherTranslator
-  class << self 
+class ForecastService
+    attr_reader :city
 
-    def parse city
-      city_name = (city.blank? ? "Sao Paulo" : city)
-      data = Openweather2.get_weather(city: "#{city_name},BR", units: 'imperial')
+    def initialize(city)
+      @city = city
+    end
+
+    def self.call(city)
+      new(city).call
+    end
+
+    def call
+      city = (@city.blank? ? "Sao Paulo" : @city)
+      data = Openweather2.get_weather(city: "#{city},BR", units: 'imperial')
       OpenStruct.new fill(data)
     end
+
+    private
 
     def fill data
       { 
@@ -29,5 +39,6 @@ class WeatherTranslator
     def convert_temp data
       celsius = ((data.temperature.to_f - 32) * 5 / 9).to_i
     end
-  end
+
 end
+
